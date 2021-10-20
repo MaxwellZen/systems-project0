@@ -10,11 +10,17 @@ struct song_node{
 };
 
 struct song_node *create_node(char* n, char* a, struct song_node *x) {
+	struct song_node *ans = malloc(sizeof(struct song_node));
 
+	strcpy(ans->name, n);
+	strcpy(ans->artist, a);
+	ans->next = x;
+
+	return ans;
 }
 
 void print_node(struct song_node *a) {
-
+	printf("%s: %s", a->artist, a->name);
 }
 
 struct song_node *insert_front(struct song_node *front, char* n, char* a) {
