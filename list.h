@@ -4,6 +4,10 @@ struct song_node{
 	struct song_node *next;
 };
 
+struct song_node *create_node(char* n, char* a, struct song_node *x);
+
+void print_node(struct song_node *a);
+
 struct song_node *insert_front(struct song_node *front, char* n, char* a);
 
 struct song_node *insert_order(struct song_node *front, char* n, char* a);
