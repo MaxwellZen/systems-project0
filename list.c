@@ -28,8 +28,27 @@ struct song_node *insert_front(struct song_node *front, char* n, char* a) {
 	return ans;
 }
 
-struct song_node *insert_order(struct song_node *front, char* n, char* a) {
+int comes_before (struct song_node *a, struct song_node *b) {
+	int x = strcmp(a->artist, b->artist);
+	if (x<0) return 1;
+	if (x==0 && strcmp(a->name, b->name)<0) return 1;
+	return 0;
+}
 
+struct song_node *insert_order(struct song_node *front, char* n, char* a) {
+	struct song_node *add = create_node(n, a, 0);
+	if (comes_before(add, front)) {
+		add->next = front;
+		return add;
+	}
+	struct song_node *prev = front, *cur = front->next;
+	while (cur!=0 && comes_before(cur, add)) {
+		prev = cur;
+		cur = cur->next;
+	}
+	add->next = cur;
+	prev->next = add;
+	return front;
 }
 
 void print_list(struct song_node* front) {
