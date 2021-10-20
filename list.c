@@ -24,7 +24,8 @@ void print_node(struct song_node *a) {
 }
 
 struct song_node *insert_front(struct song_node *front, char* n, char* a) {
-
+	struct song_node *ans = create_node(n, a, front);
+	return ans;
 }
 
 struct song_node *insert_order(struct song_node *front, char* n, char* a) {
