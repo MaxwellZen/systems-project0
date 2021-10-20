@@ -37,7 +37,7 @@ int comes_before (struct song_node *a, struct song_node *b) {
 
 struct song_node *insert_order(struct song_node *front, char* n, char* a) {
 	struct song_node *add = create_node(n, a, 0);
-	if (comes_before(add, front)) {
+	if (front==0 || comes_before(add, front)) {
 		add->next = front;
 		return add;
 	}
