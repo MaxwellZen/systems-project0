@@ -16,7 +16,9 @@ int artist_index(char *a) {
 }
 
 struct song_node **add_song (struct song_node **front, char *n, char *a) {
-
+	int i = artist_index(a);
+	front[i] = insert_order(front[i], n, a);
+	return front;
 }
 
 struct song_node *get_song (struct song_node **front, char *n, char *a) {
