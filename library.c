@@ -22,7 +22,8 @@ struct song_node **add_song (struct song_node **front, char *n, char *a) {
 }
 
 struct song_node *get_song (struct song_node **front, char *n, char *a) {
-
+	int i = artist_index(a);
+	return find_song(front[i], n, a);
 }
 
 struct song_node *get_artist (struct song_node **front, char *a) {
