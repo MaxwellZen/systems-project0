@@ -85,12 +85,13 @@ struct song_node *remove_song(struct song_node *front, char *n, char *a) {
 }
 
 struct song_node *free_list(struct song_node *front) {
-  struct song_node *beginning = front;
+	struct song_node *beginning = front;
   struct song_node *next = front -> next;
   while (next) {
     free(front);
     front = next;
     next = front -> next;
   }
-  return beginning;
+	free(front);
+  return 0;
 }
