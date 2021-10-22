@@ -7,7 +7,7 @@
 
 int main() {
 	srand(time(NULL));
-	struct song_node *a = 0, *b;
+	struct song_node *a = 0, *b, *c;
 	char s[5]="A", t[5]="B";
 	for (int i = 0; i < 20; i++) {
 		s[0]=rand()%26+'A';
@@ -20,4 +20,5 @@ int main() {
 		printf("\n");
 		b=b->next;
 	}
+
 }
