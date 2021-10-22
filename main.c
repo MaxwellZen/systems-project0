@@ -15,10 +15,19 @@ int main() {
 		a = insert_order(a, s, t);
 	}
 	b=a;
+	b = insert_front(b, "H", "E");
+	c = b;
 	while(b) {
 		print_node(b);
 		printf("\n");
 		b=b->next;
+	}
+	printf("\n\n");
+	c = remove_song(c, "H", "E");
+	while(c) {
+		print_node(c);
+		printf("\n");
+		c=c->next;
 	}
 
 }
