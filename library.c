@@ -5,7 +5,8 @@
 #include "list.h"
 
 struct song_node **init_library (struct song_node **front) {
-
+	front = malloc(27, sizeof(struct song_node *));
+	return front;
 }
 
 struct song_node **add_song (struct song_node **front, char *n, char *a) {
