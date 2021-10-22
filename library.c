@@ -9,6 +9,12 @@ struct song_node **init_library (struct song_node **front) {
 	return front;
 }
 
+int artist_index(char *a) {
+	if (a[0]>='a' && a[0]<='z') return a[0]-'a';
+	if (a[0]>='A' && a[0]<='Z') return a[0]-'A';
+	return 26;
+}
+
 struct song_node **add_song (struct song_node **front, char *n, char *a) {
 
 }
