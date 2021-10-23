@@ -52,9 +52,12 @@ struct song_node *insert_order(struct song_node *front, char* a, char* n) {
 	return front;
 }
 
-// void print_list(struct song_node* front) {
-//
-// }
+void print_list(struct song_node* front) {
+	while (front) {
+		print_node(front);
+		front = front -> next;
+	}
+}
 
 struct song_node *find_song(struct song_node *front, char* a, char* n) {
 	while (front) {

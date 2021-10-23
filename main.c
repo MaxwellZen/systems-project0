@@ -16,12 +16,8 @@ int main() {
 	}
 	a = insert_order(a, "Z", "Z");
 	b = a;
-	c = b;
-	while(c) {
-		print_node(c);
-		printf("\n");
-		c=c->next;
-	}
+	print_list(b);
+
 	printf("\n\n");
 	print_node(find_song(b, "A", "A"));
 
