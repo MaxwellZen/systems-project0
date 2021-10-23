@@ -42,7 +42,7 @@ void print_by_letter (struct song_node **front, char c) {
 
 void print_by_artist (struct song_node **front, char *a) {
 	struct song_node *song = get_artist(front, a);
-	while (song && !strcmp(song->a, a)) {
+	while (song && !strcmp(song->artist, a)) {
 		print_node(song);
 		song = song->next;
 	}
