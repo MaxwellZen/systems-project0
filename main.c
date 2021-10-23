@@ -23,7 +23,7 @@ int main() {
 		c=c->next;
 	}
 	printf("\n\n");
-	print_node(find_song(b, "Z", "Z"));
+	print_node(find_song(b, "A", "A"));
 
 
 }

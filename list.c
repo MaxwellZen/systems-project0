@@ -20,7 +20,8 @@ struct song_node *create_node(struct song_node *x, char *a, char *n) {
 }
 
 void print_node(struct song_node *a) {
-	printf("%s: %s", a->artist, a->name);
+	if (a == 0) printf("song/artist not found\n");
+	else printf("%s: %s\n", a->artist, a->name);
 }
 
 struct song_node *insert_front(struct song_node *front, char* a, char* n) {
@@ -56,21 +57,19 @@ struct song_node *insert_order(struct song_node *front, char* a, char* n) {
 // }
 
 struct song_node *find_song(struct song_node *front, char* a, char* n) {
-	struct song_node *beg = front;
 	while (front) {
 		if (!strcmp(front -> name, n) && !strcmp(front -> artist, a)) return front;
 		front = front -> next;
 	}
-	return beg;
+	return 0;
 }
 
 struct song_node *find_artist(struct song_node *front, char *a) {
-	struct song_node *beg = front;
 	while (front) {
 		if (!strcmp(front -> artist, a)) return front;
 		front = front -> next;
 	}
-	return beg;
+	return 0;
 }
 
 struct song_node *get_random(struct song_node *front) {
