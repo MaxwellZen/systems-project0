@@ -63,9 +63,23 @@ struct song_node *insert_order(struct song_node *front, char* n, char* a) {
 //
 // }
 
-// struct song_node *get_random(struct song_node *front) {
-//
-// }
+struct song_node *get_random(struct song_node *front) {
+	struct song_node *hold = front;
+	int size = 0;
+	while (hold) {
+		size += 1;
+		hold = hold -> next;
+	}
+
+	srand(time(NULL));
+	int random = rand() % size;
+	while (front -> next) {
+		if (random == 0) return front;
+		random -= 1;
+		front = front -> next;
+	}
+	return front;
+}
 
 struct song_node *remove_song(struct song_node *front, char *n, char *a) {
   struct song_node *curr = front;
