@@ -59,9 +59,15 @@ struct song_node *insert_order(struct song_node *front, char* n, char* a) {
 //
 // }
 
-// struct song_node *find_artist(struct song_node *front, char *n) {
-//
-// }
+struct song_node *find_artist(struct song_node *front, char *a) {
+	struct song_node *beg = front;
+
+	while (front) {
+		if (!strcmp(front -> artist, a)) return front;
+		front = front -> next;
+	}
+	return beg;
+}
 
 struct song_node *get_random(struct song_node *front) {
 	struct song_node *hold = front;
@@ -72,6 +78,7 @@ struct song_node *get_random(struct song_node *front) {
 	}
 
 	srand(time(NULL));
+	printf("%d\n", rand());
 	int random = rand() % size;
 	while (front -> next) {
 		if (random == 0) return front;
