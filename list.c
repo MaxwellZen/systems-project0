@@ -9,7 +9,7 @@ struct song_node{
 	struct song_node *next;
 };
 
-struct song_node *create_node(char* n, char* a, struct song_node *x) {
+struct song_node *create_node(struct song_node *x, char *a, char *n) {
 	struct song_node *ans = malloc(sizeof(struct song_node));
 
 	strcpy(ans->name, n);
@@ -23,8 +23,8 @@ void print_node(struct song_node *a) {
 	printf("%s: %s", a->artist, a->name);
 }
 
-struct song_node *insert_front(struct song_node *front, char* n, char* a) {
-	struct song_node *ans = create_node(n, a, front);
+struct song_node *insert_front(struct song_node *front, char* a, char* n) {
+	struct song_node *ans = create_node(front, a, n);
 	return ans;
 }
 
@@ -35,8 +35,8 @@ int comes_before (struct song_node *a, struct song_node *b) {
 	return 0;
 }
 
-struct song_node *insert_order(struct song_node *front, char* n, char* a) {
-	struct song_node *add = create_node(n, a, 0);
+struct song_node *insert_order(struct song_node *front, char* a, char* n) {
+	struct song_node *add = create_node(0, a, n);
 	if (front==0 || comes_before(add, front)) {
 		add->next = front;
 		return add;
@@ -55,7 +55,7 @@ struct song_node *insert_order(struct song_node *front, char* n, char* a) {
 //
 // }
 
-struct song_node *find_song(struct song_node *front, char* n, char* a) {
+struct song_node *find_song(struct song_node *front, char* a, char* n) {
 	struct song_node *beg = front;
 	while (front) {
 		if (!strcmp(front -> name, n) && !strcmp(front -> artist, a)) return front;
@@ -92,7 +92,7 @@ struct song_node *get_random(struct song_node *front) {
 	return front;
 }
 
-struct song_node *remove_song(struct song_node *front, char *n, char *a) {
+struct song_node *remove_song(struct song_node *front, char *a, char *n) {
   struct song_node *curr = front;
   struct song_node *next = curr -> next;
 

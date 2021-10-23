@@ -12,7 +12,7 @@ int main() {
 	for (int i = 0; i < 20; i++) {
 		s[0]=rand()%26+'A';
 		t[0]=rand()%26+'A';
-		a = insert_order(a, s, t);
+		a = insert_order(a, t, s);
 	}
 	a = insert_order(a, "Z", "Z");
 	b = a;
