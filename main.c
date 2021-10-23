@@ -14,8 +14,8 @@ int main() {
 		t[0]=rand()%26+'A';
 		a = insert_order(a, s, t);
 	}
+	a = insert_order(a, "Z", "Z");
 	b = a;
-	b = insert_front(b, "H", "E");
 	c = b;
 	while(c) {
 		print_node(c);
@@ -23,7 +23,7 @@ int main() {
 		c=c->next;
 	}
 	printf("\n\n");
-	print_node(find_artist(b, "D"));
+	print_node(find_song(b, "Z", "Z"));
 
 
 }
