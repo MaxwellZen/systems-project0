@@ -84,8 +84,9 @@ struct song_node *get_random(struct song_node *front) {
 	}
 
 	srand(time(NULL));
-	printf("%d\n", rand());
 	int random = rand() % size;
+	printf("%d\n", rand());
+	printf("%d\n", random);
 	while (front -> next) {
 		if (random == 0) return front;
 		random -= 1;
