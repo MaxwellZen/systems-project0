@@ -127,7 +127,7 @@ struct song_node *free_list(struct song_node *front) {
 		free(front);
 		front = temp;
 	}
-	return temp;
+	return 0;
 }
 
 

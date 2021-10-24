@@ -6,6 +6,7 @@
 
 struct song_node **init_library (struct song_node **front) {
 	front = malloc(27 * sizeof(struct song_node *));
+	for (int i = 0; i < 27; i++) front[i]=0;
 	return front;
 }
 
