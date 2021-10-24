@@ -16,8 +16,9 @@ int main() {
 		a = insert_order(a, t, s);
 	}
 	a = insert_order(a, "Z", "Z");
+	a = insert_front(a, "A", "A");
 
-	printf("Print list:\n");
+	printf("Insert front, Insert Order, Print list:\n");
 	print_list(a);
 
 	printf("\n\nFind song X by B:\n[ ");
@@ -54,7 +55,7 @@ int main() {
 	lib = add_song(lib, "A", "M");
 	lib = add_song(lib, "Adele", "Hello");
 
-	printf("\nPrint library:\n");
+	printf("\nAdd song, Print library:\n");
 	print_library(lib);
 
 	printf("\nGet song:\n");
