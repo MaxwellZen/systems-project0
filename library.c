@@ -52,7 +52,7 @@ void print_by_artist (struct song_node **front, char *a) {
 		song = song->next;
 		if (song && !strcmp(song->artist, a)) printf(" | ");
 	}
-	printf(" ]");
+	printf(" ]\n");
 }
 
 void print_library (struct song_node **front) {

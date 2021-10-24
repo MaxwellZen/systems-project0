@@ -47,7 +47,6 @@ int main() {
 	lib = init_library(lib);
 	printf("lol");
 	for (int i = 0; i < 20; i++) {
-		printf("lol");
 		s[0]=rand()%26+'A';
 		t[0]=rand()%26+'A';
 		lib = add_song(lib, s, t);
@@ -61,8 +60,14 @@ int main() {
 	printf("\nGet song:\n");
 	print_node(get_song(lib, "M", "B"));
 
-	printf("\nGet all songs by artist\n");
+	printf("\nGet artist F:\n");
+	print_node(get_artist(lib, "F"));
+
+	printf("\nGet all songs by artist A:\n");
 	print_by_artist(lib, "A");
+
+	printf("\nPrinting by letter B:\n");
+	print_by_letter(lib, 'B');
 
 	printf("\n\nShuffle list:\n");
 	shuffle(lib);
