@@ -43,10 +43,16 @@ void print_by_letter (struct song_node **front, char c) {
 
 void print_by_artist (struct song_node **front, char *a) {
 	struct song_node *song = get_artist(front, a);
-	while (song && !strcmp(song->artist, a)) {
+	if (song==0) {
+		printf("Artist not found\n");
+	}
+	printf("[ ");
+	while (song!=NULL && strcmp(song->artist, a)==0) {
 		print_node(song);
 		song = song->next;
+		if (song && !strcmp(song->artist, a)) printf(" | ");
 	}
+	printf(" ]");
 }
 
 void print_library (struct song_node **front) {

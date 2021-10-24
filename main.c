@@ -51,6 +51,7 @@ int main() {
 		t[0]=rand()%26+'A';
 		lib = add_song(lib, s, t);
 	}
+	lib = add_song(lib, "A", "M");
 	lib = add_song(lib, "Adele", "Hello");
 
 	printf("\nPrint library:\n");
@@ -59,8 +60,9 @@ int main() {
 	printf("\n\nGet song:\n");
 	print_node(get_song(lib, "M", "B"));
 
+	print_node(get_artist(lib, "A"));
 	printf("\n\nGet all songs by artist\n");
-	print_by_artist(lib, "a");
+	print_by_artist(lib, "A");
 
 	printf("\nDelete song\n");
 	lib = delete_song(lib, "Adele", "Hello");
