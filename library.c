@@ -49,6 +49,10 @@ void print_by_artist (struct song_node **front, char *a) {
 }
 
 void print_library (struct song_node **front) {
+	if (front==0) {
+		printf("Library is empty\n");
+		return;
+	}
 	char c = 'a';
 	int i = 0;
 
