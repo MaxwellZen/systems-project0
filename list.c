@@ -54,7 +54,7 @@ struct song_node *insert_order(struct song_node *front, char* a, char* n) {
 
 void print_list(struct song_node* front) {
 	printf("[ ");
-	if (!front) {
+	if (front) {
 		while (front -> next) {
 			print_node(front);
 			printf(" | ");
@@ -89,7 +89,7 @@ struct song_node *get_random(struct song_node *front) {
 		hold = hold -> next;
 	}
 
-	srand(time(NULL));
+	// srand(time(NULL));
 	int random = rand() % size;
 	while (front -> next) {
 		if (random == 0) return front;
@@ -100,36 +100,40 @@ struct song_node *get_random(struct song_node *front) {
 }
 
 struct song_node *remove_song(struct song_node *front, char *a, char *n) {
-  struct song_node *curr = front;
-  struct song_node *next = front -> next;
+	struct song_node *curr = front;
+	struct song_node *next = front -> next;
 
-  if (strcmp(n, curr -> name) == 0 && strcmp(a, curr -> artist) == 0) front = next;
+	if (strcmp(n, curr -> name) == 0 && strcmp(a, curr -> artist) == 0) {
+		free(front);
+		return next;
+	}
 
-  while (next) {
-    if (strcmp(n, next -> name) == 0 && strcmp(a, next -> artist) == 0) {
-      curr -> next = next -> next;
-      break;
-    }
-    curr = next;
-    next = next -> next;
-  }
-  return front;
+	while (next) {
+		if (strcmp(n, next -> name) == 0 && strcmp(a, next -> artist) == 0) {
+			curr -> next = next -> next;
+			free(next);
+			break;
+		}
+		curr = next;
+		next = next -> next;
+	}
+	return front;
 }
 
 struct song_node *free_list(struct song_node *front) {
 	struct song_node *temp;
-  while (front) {
-    temp = front -> next;
-    free(front);
-    front = temp;
-  }
-  return temp;
+	while (front) {
+		temp = front -> next;
+		free(front);
+		front = temp;
+	}
+	return temp;
 }
 
 
 
 void lib_print_list(struct song_node *front) {
-	if (front != 0) {
+	if (front) {
 		printf("[ ");
 		while (front -> next) {
 			print_node(front);

@@ -53,10 +53,10 @@ void print_library (struct song_node **front) {
 		printf("Library is empty\n");
 		return;
 	}
-	char c = 'a';
-	int i = 0;
+	char c;
+	int i;
 
-	for (char c = 'a'; c <= 'z' + 1; c ++) {
+	for (c = 'a'; c <= 'z' + 1; c ++) {
 		i = char_index(c);
 		if (front[i] != NULL) {
 			printf("%c: ", c);
