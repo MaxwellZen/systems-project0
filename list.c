@@ -89,14 +89,16 @@ struct song_node *get_random(struct song_node *front) {
 		hold = hold -> next;
 	}
 
-	// srand(time(NULL));
-	int random = rand() % size;
-	while (front -> next) {
-		if (random == 0) return front;
-		random -= 1;
-		front = front -> next;
+	if (size == 0) return 0;
+	else {
+		int random = rand() % size;
+		while (front -> next) {
+			if (random == 0) return front;
+			random -= 1;
+			front = front -> next;
+		}
+		return front;
 	}
-	return front;
 }
 
 struct song_node *remove_song(struct song_node *front, char *a, char *n) {

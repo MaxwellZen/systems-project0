@@ -72,10 +72,23 @@ void print_library (struct song_node **front) {
 	}
 }
 
-// void shuffle (struct song_node **front) {
-// 	srand(0);
-//
-// }
+void shuffle (struct song_node **front) {
+	struct song_node *temp = 0;
+	int i = 0;
+	int k = 0;
+	printf("[ ");
+
+	for (int i = 0; i < 3; i ++) {
+		int k = rand() % 27;
+		temp = front[k];
+		if (temp) {
+			print_node(get_random(temp));
+			if (i != 2) printf(" | ");
+		}
+		else i -= 1;
+	}
+	printf(" ]");
+}
 
 struct song_node **delete_song (struct song_node **front, char *a, char *n) {
 	int i = char_index(*a);

@@ -57,14 +57,16 @@ int main() {
 	printf("\nPrint library:\n");
 	print_library(lib);
 
-	printf("\n\nGet song:\n");
+	printf("\nGet song:\n");
 	print_node(get_song(lib, "M", "B"));
 
-	print_node(get_artist(lib, "A"));
-	printf("\n\nGet all songs by artist\n");
+	printf("\nGet all songs by artist\n");
 	print_by_artist(lib, "A");
 
-	printf("\nDelete song\n");
+	printf("\n\nShuffle list:\n");
+	shuffle(lib);
+
+	printf("\n\nDelete song\n");
 	lib = delete_song(lib, "Adele", "Hello");
 	print_library(lib);
 
