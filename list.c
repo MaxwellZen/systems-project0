@@ -53,13 +53,16 @@ struct song_node *insert_order(struct song_node *front, char* a, char* n) {
 }
 
 void print_list(struct song_node* front) {
-	printf("[ | ");
-	while (front) {
+	printf("[ ");
+	if (!front) {
+		while (front -> next) {
+			print_node(front);
+			printf(" | ");
+			front = front -> next;
+		}
 		print_node(front);
-		printf(" | ");
-		front = front -> next;
 	}
-	printf("]\n");
+	printf(" ]\n");
 }
 
 struct song_node *find_song(struct song_node *front, char* a, char* n) {
@@ -98,7 +101,7 @@ struct song_node *get_random(struct song_node *front) {
 
 struct song_node *remove_song(struct song_node *front, char *a, char *n) {
   struct song_node *curr = front;
-  struct song_node *next = curr -> next;
+  struct song_node *next = front -> next;
 
   if (!strcmp(n, curr -> name) && !strcmp(a, curr -> artist)) return next;
 
@@ -110,7 +113,7 @@ struct song_node *remove_song(struct song_node *front, char *a, char *n) {
     curr = next;
     next = next -> next;
   }
-  return front;
+  return 0;
 }
 
 struct song_node *free_list(struct song_node *front) {
