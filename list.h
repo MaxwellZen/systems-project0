@@ -23,3 +23,5 @@ struct song_node *get_random(struct song_node *front);
 struct song_node *remove_song(struct song_node *front, char* a, char* n);
 
 struct song_node *free_list(struct song_node *front);
+
+void lib_print_list(struct song_node *front);

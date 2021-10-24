@@ -37,7 +37,7 @@ struct song_node *get_artist (struct song_node **front, char *a) {
 
 void print_by_letter (struct song_node **front, char c) {
 	int i = char_index(c);
-	print_list(front[i]);
+	if (front[i] != 0) print_list(front[i]);
 }
 
 void print_by_artist (struct song_node **front, char *a) {
@@ -50,12 +50,20 @@ void print_by_artist (struct song_node **front, char *a) {
 
 void print_library (struct song_node **front) {
 	char c = 'a';
-	for (char c = 'a'; c <= 'z' + 1; c++) {
-		print_by_letter(front, c);
+	int i = 0;
+	struct song_node *temp = 0;
+
+	for (char c = 'a'; c <= 'z' + 1; c ++) {
+		i = char_index(c);
+		if (front[i] != 0) {
+			printf("%c: ", c);
+			lib_print_list(front[i]);
+		}
 	}
 }
 
 // void shuffle (struct song_node **front) {
+// 	srand(0);
 //
 // }
 

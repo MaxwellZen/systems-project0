@@ -4,8 +4,8 @@
 #include <string.h>
 
 struct song_node{
-	char name[100];
 	char artist[100];
+	char name[100];
 	struct song_node *next;
 };
 
@@ -21,7 +21,7 @@ struct song_node *create_node(struct song_node *x, char *a, char *n) {
 
 void print_node(struct song_node *a) {
 	if (a == 0) printf("song/artist not found\n");
-	else printf("%s: %s\n", a->artist, a->name);
+	else printf("{%s, %s}", a->artist, a->name);
 }
 
 struct song_node *insert_front(struct song_node *front, char* a, char* n) {
@@ -53,10 +53,13 @@ struct song_node *insert_order(struct song_node *front, char* a, char* n) {
 }
 
 void print_list(struct song_node* front) {
+	printf("[ | ");
 	while (front) {
 		print_node(front);
+		printf(" | ");
 		front = front -> next;
 	}
+	printf("]\n");
 }
 
 struct song_node *find_song(struct song_node *front, char* a, char* n) {
@@ -85,8 +88,6 @@ struct song_node *get_random(struct song_node *front) {
 
 	srand(time(NULL));
 	int random = rand() % size;
-	printf("%d\n", rand());
-	printf("%d\n", random);
 	while (front -> next) {
 		if (random == 0) return front;
 		random -= 1;
@@ -122,4 +123,17 @@ struct song_node *free_list(struct song_node *front) {
   }
 	free(front);
   return 0;
+}
+
+void lib_print_list(struct song_node *front) {
+	if (front != 0) {
+		printf("[ ");
+		while (front -> next) {
+			print_node(front);
+			printf(" | ");
+			front = front -> next;
+		}
+		print_node(front);
+		printf(" ]\n");
+	}
 }
