@@ -67,9 +67,11 @@ void print_library (struct song_node **front) {
 //
 // }
 
-// struct song_node **delete_song (struct song_node **front, char *a, char *n) {
-//
-// }
+struct song_node **delete_song (struct song_node **front, char *a, char *n) {
+	int i = char_index(*a);
+	remove_song(front[i], a, n);
+	return front;
+}
 
 // struct song_node **clear_library (struct song_node **front) {
 //
