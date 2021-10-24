@@ -51,11 +51,10 @@ void print_by_artist (struct song_node **front, char *a) {
 void print_library (struct song_node **front) {
 	char c = 'a';
 	int i = 0;
-	struct song_node *temp = 0;
 
 	for (char c = 'a'; c <= 'z' + 1; c ++) {
 		i = char_index(c);
-		if (front[i] != 0) {
+		if (front[i] != NULL) {
 			printf("%c: ", c);
 			lib_print_list(front[i]);
 		}
@@ -73,6 +72,12 @@ struct song_node **delete_song (struct song_node **front, char *a, char *n) {
 	return front;
 }
 
-// struct song_node **clear_library (struct song_node **front) {
-//
-// }
+struct song_node **clear_library (struct song_node **front) {
+	char c = 'a';
+	int i = 0;
+	for (char c = 'a'; c <= 'z' + 1; c ++) {
+		i = char_index(c);
+		if (front[i] != 0) free_list(front[i]);
+	}
+	return 0;
+}

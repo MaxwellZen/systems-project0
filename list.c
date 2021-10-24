@@ -103,30 +103,30 @@ struct song_node *remove_song(struct song_node *front, char *a, char *n) {
   struct song_node *curr = front;
   struct song_node *next = front -> next;
 
-  if (!strcmp(n, curr -> name) && !strcmp(a, curr -> artist)) return next;
+  if (strcmp(n, curr -> name) == 0 && strcmp(a, curr -> artist) == 0) front = next;
 
   while (next) {
-    if (!strcmp(n, next -> name) && !strcmp(a, next -> artist)) {
+    if (strcmp(n, next -> name) == 0 && strcmp(a, next -> artist) == 0) {
       curr -> next = next -> next;
       break;
     }
     curr = next;
     next = next -> next;
   }
-  return 0;
+  return front;
 }
 
 struct song_node *free_list(struct song_node *front) {
-	struct song_node *beginning = front;
-  struct song_node *next = front -> next;
-  while (next) {
+	struct song_node *temp;
+  while (front) {
+    temp = front -> next;
     free(front);
-    front = next;
-    next = front -> next;
+    front = temp;
   }
-	free(front);
-  return 0;
+  return temp;
 }
+
+
 
 void lib_print_list(struct song_node *front) {
 	if (front != 0) {
