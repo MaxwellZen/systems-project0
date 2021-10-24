@@ -28,12 +28,14 @@ int main() {
 		t[0]=rand()%26+'A';
 		lib = add_song(lib, s, t);
 	}
-	for (char c = 'a'; c <= 'z'+1; c++) {
-		print_by_letter(lib, c);
-	}
-	printf("\n");
+	// for (char c = 'a'; c <= 'z'+1; c++) {
+	// 	print_by_letter(lib, c);
+	// }
+	printf("\nPrint library:\n");
+	print_library(lib);
+	printf("\nGet song:\n");
 	print_node(get_song(lib, "M", "B"));
-	printf("\n");
+	printf("\nGet all songs by artist\n");
 	print_by_artist(lib, "J");
 
 }
