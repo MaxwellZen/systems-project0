@@ -15,13 +15,19 @@ int main() {
 		t[0]=rand()%26+'A';
 		a = insert_order(a, t, s);
 	}
-	a = insert_order(a, "Z", "Z");
-	a = insert_front(a, "A", "A");
 
-	printf("Insert front, Insert Order, Print list:\n");
+	printf("Print list:\n");
 	print_list(a);
 
-	printf("\n\nFind song X by B:\n[ ");
+	printf("\nInsert order song Z by Z:\n");
+	a = insert_order(a, "Z", "Z");
+	print_list(a);
+
+	printf("\nInsert front A by A:\n");
+	a = insert_front(a, "A", "A");
+	print_list(a);
+
+	printf("\nFind song X by B:\n[ ");
 	print_node(find_song(a, "B", "X"));
 	printf(" ]");
 
@@ -69,7 +75,7 @@ int main() {
 	printf("\nPrinting by letter B:\n");
 	print_by_letter(lib, 'B');
 
-	printf("\n\nShuffle list:\n");
+	printf("\nShuffle list:\n");
 	shuffle(lib);
 
 	printf("\n\nDelete song\n");
